@@ -13,7 +13,8 @@ SPIDER_MODULES = ["free_images.spiders"]
 NEWSPIDER_MODULE = "free_images.spiders"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = "free_images (+http://www.yourdomain.com)"
+USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+              "(KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36")
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -36,10 +37,12 @@ ROBOTSTXT_OBEY = True
 # TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
-#    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-#    "Accept-Language": "en",
-# }
+DEFAULT_REQUEST_HEADERS = {
+   "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif"
+             ",image/webp,image/apng,*/*;q=0.8,application/signed-exchange;"
+             "v=b3;q=0.7",
+   "Accept-Language": "ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7",
+}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -65,6 +68,10 @@ ITEM_PIPELINES = {
    "scrapy.pipelines.images.ImagesPipeline": 1,
 }
 IMAGES_STORE = "images"
+# IMAGES_THUMBS = {
+#     'small': (50, 50),
+#     'big': (270, 270)
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
